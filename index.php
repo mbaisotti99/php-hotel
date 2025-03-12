@@ -71,12 +71,16 @@ $hotels = [
         ?>
     </pre> -->
     <div class="container">
+
         <h1 class="text-center my-5">PHP Hotels</h1>
         <hr>
+
+        <!-- Filtri -->
+
         <h2 class="my-5 text-center">Filtra i risultati</h2>
         <form action="index.php" method="GET" class="d-flex flex-column w-50 m-auto my-5">
-            <label>Filtra per voto</label>
-            <select name="voto">
+            <label class="mb-2">Filtra per voto</label>
+            <select name="voto" class="mb-3">
                 <option value="all" <?= $voto == "all" ? "selected" : "" ?>>Tutti</option>
                 <option value="1" <?= $voto == "1" ? "selected" : "" ?>>1</option>
                 <option value="2" <?= $voto == "2" ? "selected" : "" ?>>2</option>
@@ -84,8 +88,8 @@ $hotels = [
                 <option value="4" <?= $voto == "4" ? "selected" : "" ?>>4</option>
                 <option value="5" <?= $voto == "5" ? "selected" : "" ?>>5</option>
             </select>
-            <label>Filtra per parcheggio disponibile</label>
-            <select name="park">
+            <label class="mb-2">Filtra per parcheggio disponibile</label>
+            <select name="park" class="mb-3">
                 <option value="all" <?= $park == "all" ? "selected" : "" ?>>Tutti</option>
                 <option value="yes" <?= $park == "yes" ? "selected" : "" ?>>Si</option>
                 <option value="no" <?= $park == "no" ? "selected" : "" ?>>No</option>
@@ -94,6 +98,8 @@ $hotels = [
         </form>
         <hr class="mb-5">
         
+        <!-- Impostazione filtri     -->
+
         <?php
 
         if ($park !== "all" || $voto !=="all") {
@@ -118,6 +124,8 @@ $hotels = [
             }
         }
         }
+
+        // Stampa Hotels
 
         if ($park == "all" && $voto =="all") {
         foreach ($hotels as $hotel) {
